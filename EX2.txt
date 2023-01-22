@@ -1,0 +1,14 @@
+
+
+// I started with left join because regular join doesnt show values of 0,
+// than i compared the DEPARTMENT ID and EMPLOYEE DEPT_ID
+// after this i grouped by DEPARTMENT.ID to count all the fields,
+// and finally i just sorted the result with desc and asc
+
+
+select DEPARTMENT.NAME, count(EMPLOYEE.ID)
+from DEPARTMENT 
+left join EMPLOYEE
+on EMPLOYEE.DEPT_ID = DEPARTMENT.ID
+group by DEPARTMENT.NAME
+order by count(EMPLOYEE.ID) desc, DEPARTMENT.NAME asc
